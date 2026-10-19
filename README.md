@@ -9,13 +9,15 @@
 - formaty MP3, M4A AAC, WAV, FLAC, OPUS oraz podział bez rekompresji,
 - automatyczna obsługa FFmpeg i lokalnego whisper.cpp,
 - przyspieszenie NVIDIA CUDA z bezpiecznym powrotem do CPU,
-- interfejs dostosowany do obsługi klawiaturą i czytnikiem ekranu NVDA.
+- interfejs dostosowany do obsługi klawiaturą i czytnikiem ekranu NVDA,
+- języki: polski, angielski, niemiecki i rosyjski, wybierane przy pierwszym uruchomieniu,
+- automatyczny jasny lub ciemny motyw zgodny z ustawieniem aplikacji w Windows.
 
 ## Pobieranie
 
 Najnowsza wersja znajduje się w sekcji [Releases](https://github.com/proszczok2002/majher/releases/latest).
 
-Pobierz `Majher-1.6.zip`, rozpakuj archiwum i uruchom `Majher.exe`. Program nie wymaga instalatora.
+Pobierz `Majher-1.7.zip`, rozpakuj archiwum i uruchom `Majher.exe`. Program nie wymaga instalatora.
 
 > Windows może przy pierwszym uruchomieniu wyświetlić komunikat SmartScreen, ponieważ plik wykonywalny nie ma komercyjnego podpisu cyfrowego.
 
@@ -23,6 +25,13 @@ Pobierz `Majher-1.6.zip`, rozpakuj archiwum i uruchom `Majher.exe`. Program nie 
 
 Program sprawdza nowe wersje wyłącznie w GitHub Releases. Pobrany plik EXE jest weryfikowany opublikowaną sumą SHA-256 przed podmianą programu.
 Pliki aktualizatora oraz konfiguracje FFmpeg i whisper.cpp są dołączane jako zasoby każdego wydania.
+
+## Wsparcie
+
+Jeśli chcesz wesprzeć rozwój programu:
+
+- [Revolut](https://revolut.me/r_rosiejka)
+- [PayPal](https://paypal.me/proszczok)
 
 ## Prywatność
 
