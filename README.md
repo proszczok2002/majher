@@ -17,7 +17,7 @@
 
 Najnowsza wersja znajduje się w sekcji [Releases](https://github.com/proszczok2002/majher/releases/latest).
 
-Pobierz `Majher-1.7.zip`, rozpakuj archiwum i uruchom `Majher.exe`. Program nie wymaga instalatora.
+Pobierz `Majher-1.8.zip`, rozpakuj archiwum i uruchom `Majher.exe`. Program nie wymaga instalatora.
 
 > Windows może przy pierwszym uruchomieniu wyświetlić komunikat SmartScreen, ponieważ plik wykonywalny nie ma komercyjnego podpisu cyfrowego.
 
@@ -32,6 +32,8 @@ Jeśli chcesz wesprzeć rozwój programu:
 
 - [Revolut](https://revolut.me/r_rosiejka)
 - [PayPal](https://paypal.me/proszczok)
+
+Przyciski wsparcia w programie mają neutralne opisy dostępności i nie odczytują nazw użytkowników kont.
 
 ## Prywatność
 
