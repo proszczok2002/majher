@@ -1,49 +1,51 @@
 # Majher
 
-**Majher** to przenośny program dla Windows do dzielenia długich audiobooków i innych plików audio na krótsze części.
+Majher to przenośny program dla Windows, który dzieli długie audiobooki i inne nagrania na krótsze pliki. Możesz ustawić maksymalną długość części albo włączyć tryb audiobooka, który korzysta z rozdziałów zapisanych w pliku, pauz i lokalnego rozpoznawania zapowiedzi rozdziałów.
 
-## Najważniejsze funkcje
+Program działa lokalnie. Nagrania i rozpoznany tekst nie są wysyłane do usługi internetowej.
 
-- podział według wybranej długości fragmentu,
-- tryb audiobooka wykorzystujący metadane, pauzy i lokalne rozpoznawanie zapowiedzi rozdziałów,
-- formaty MP3, M4A AAC, WAV, FLAC, OPUS oraz podział bez rekompresji,
-- automatyczna obsługa FFmpeg i lokalnego whisper.cpp,
-- przyspieszenie NVIDIA CUDA z bezpiecznym powrotem do CPU,
-- interfejs dostosowany do obsługi klawiaturą i czytnikiem ekranu NVDA,
-- języki: polski, angielski, niemiecki i rosyjski, wybierane przy pierwszym uruchomieniu,
-- automatyczny jasny lub ciemny motyw zgodny z ustawieniem aplikacji w Windows.
+## Co potrafi
 
-## Pobieranie
+- Dzieli jeden lub wiele plików audio, zachowując format wejściowy albo zapisując MP3, M4A AAC, WAV, FLAC lub OPUS.
+- W trybie audiobooka najpierw wykorzystuje rozdziały z metadanych. Gdy ich nie ma, sprawdza pauzy i krótkie próbki lokalnym modelem Whisper.
+- Korzysta z FFmpeg i FFprobe dostępnych w systemie lub sam przygotowuje ich lokalną kopię.
+- Pozwala wybrać opcjonalne przyspieszenie NVIDIA CUDA; gdy jest niedostępne, może pracować na CPU.
+- Ma polski, angielski, niemiecki i rosyjski interfejs. Język oraz motyw systemowy, jasny lub ciemny można zmieniać w oknie programu.
+- Używa standardowych kontrolek Windows, klawiatury Tab/Shift+Tab oraz nazw i opisów dostępnych dla czytników ekranu, w tym NVDA.
 
-Najnowsza wersja znajduje się w sekcji [Releases](https://github.com/proszczok2002/majher/releases/latest).
+## Pobieranie i uruchomienie
 
-Pobierz `Majher-1.8.zip`, rozpakuj archiwum i uruchom `Majher.exe`. Program nie wymaga instalatora.
+Pobierz [najnowsze wydanie](https://github.com/proszczok2002/majher/releases/latest), rozpakuj `Majher-1.9.zip` do wybranego folderu i uruchom `Majher.exe`. Instalator nie jest potrzebny. Przy pierwszym uruchomieniu Majher zapyta o język. Później możesz go zmienić w głównym oknie.
 
-> Windows może przy pierwszym uruchomieniu wyświetlić komunikat SmartScreen, ponieważ plik wykonywalny nie ma komercyjnego podpisu cyfrowego.
+Program zapisuje ustawienia w `Majher.ini` obok pliku EXE. Umieść go więc w folderze, do którego masz prawo zapisu, na przykład w swoim folderze użytkownika. Nie uruchamiaj EXE bezpośrednio z archiwum ZIP.
+
+> Windows może ostrzec przez SmartScreen, ponieważ EXE nie ma komercyjnego podpisu cyfrowego.
+
+## Minimalne wymagania
+
+- Windows 10 lub 11 i procesor x86-64 (64-bitowy).
+- Wolne miejsce na pliki wynikowe i ewentualnie pobrane narzędzia. Model do rozpoznawania rozdziałów ma około 190 MB; wariant CUDA potrzebuje więcej miejsca.
+- Dostęp do internetu przy pierwszym pobieraniu brakujących składników i podczas sprawdzania aktualizacji.
+
+Karta NVIDIA, zainstalowany FFmpeg i konto GitHub **nie są wymagane** do samego uruchomienia programu. Po przygotowaniu składników dzielenie plików odbywa się lokalnie.
+
+## Co program pobiera, gdy czegoś brakuje
+
+1. Majher sprawdza, czy `ffmpeg.exe` i `ffprobe.exe` są dostępne w systemie.
+2. Następnie sprawdza lokalne kopie obok programu.
+3. Jeśli nie ma kompletnej pary narzędzi, pobiera paczkę Windows Essentials FFmpeg, weryfikuje sumę SHA-256 opublikowaną przez dostawcę i zapisuje potrzebne pliki w `tools\ffmpeg` obok EXE. Nie instaluje FFmpeg w całym systemie.
+4. Jeśli korzystasz z rozpoznawania mówionych zapowiedzi rozdziałów, program pyta przed pierwszym pobraniem modelu i silnika whisper.cpp. Pliki zapisuje w `tools\chapter-detector`. Możesz wybrać CPU albo, przy zgodnej karcie NVIDIA, CUDA.
+
+Jeśli plik audiobooka ma już rozdziały zapisane w metadanych, program wykorzystuje je bez rozpoznawania mowy. Do samego cięcia potrzebny jest FFmpeg.
 
 ## Aktualizacje
 
-Program sprawdza nowe wersje wyłącznie w GitHub Releases. Pobrany plik EXE jest weryfikowany opublikowaną sumą SHA-256 przed podmianą programu.
-Pliki aktualizatora oraz konfiguracje FFmpeg i whisper.cpp są dołączane jako zasoby każdego wydania.
+Majher sprawdza nowe wersje w [GitHub Releases](https://github.com/proszczok2002/majher/releases). Przed podmianą programu weryfikuje pobrany EXE sumą SHA-256. Aktualizator nie korzysta z prywatnego serwera autora.
 
 ## Wsparcie
 
-Jeśli chcesz wesprzeć rozwój programu:
-
-- [Revolut](https://revolut.me/r_rosiejka)
-- [PayPal](https://paypal.me/proszczok)
-
-Przyciski wsparcia w programie mają neutralne opisy dostępności i nie odczytują nazw użytkowników kont.
-
-## Prywatność
-
-Wszystkie pliki audio i krótkie próbki używane do wykrywania rozdziałów są przetwarzane lokalnie na komputerze. Nagrania nie są wysyłane do usług internetowych.
-
-## Dostępność
-
-Interfejs korzysta ze standardowych kontrolek Windows, obsługuje nawigację Tab i Shift+Tab oraz współpracuje z NVDA.
+Jeśli chcesz wesprzeć rozwój programu: [Revolut](https://revolut.me/r_rosiejka) lub [PayPal](https://paypal.me/proszczok). Przyciski w aplikacji mają neutralne opisy dla czytników ekranu.
 
 ## Kod źródłowy
 
-To repozytorium służy wyłącznie do dystrybucji gotowych wydań. Kod źródłowy programu nie jest publikowany.
-
+Repozytorium służy do publikowania opisu i gotowych wydań. Kod źródłowy Majhera nie jest publikowany.
