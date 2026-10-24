@@ -46,6 +46,21 @@ Majher sprawdza nowe wersje w [GitHub Releases](https://github.com/proszczok2002
 
 Jeśli chcesz wesprzeć rozwój programu: [Revolut](https://revolut.me/r_rosiejka) lub [PayPal](https://paypal.me/proszczok). Przyciski w aplikacji mają neutralne opisy dla czytników ekranu.
 
-## Kod źródłowy
+## Kod źródłowy i współpraca
 
-Repozytorium służy do publikowania opisu i gotowych wydań. Kod źródłowy Majhera nie jest publikowany.
+Kod Majhera jest publiczny w tym repozytorium: `src/main.rs`, `Cargo.toml`, `Cargo.lock` oraz `.cargo/config.toml`. Możesz przejrzeć implementację, zrobić fork i zaproponować zmianę przez pull request. Propozycje błędów i funkcji można zgłaszać w zakładce [Issues](https://github.com/proszczok2002/majher/issues). Zasady współpracy są w [CONTRIBUTING.md](CONTRIBUTING.md).
+
+### Budowanie na Windows
+
+Potrzebujesz Windows 10/11 x64, stabilnego Rust z `rustup` (target `x86_64-pc-windows-msvc`) oraz narzędzi kompilacji C++ z Visual Studio Build Tools. Program nie ma zewnętrznych zależności Cargo; do samego zbudowania nie trzeba instalować FFmpeg ani Whisper.
+
+```powershell
+cargo test --locked
+cargo build --release --locked
+```
+
+Gotowy plik pojawi się jako `target\release\majher_bby_proszczok.exe`. Można go skopiować jako `Majher.exe` do folderu z prawem zapisu. Pliki `version.txt`, `changelog.txt`, `chapter-detector.txt` i `ffmpeg-url.txt` są publikowane wraz z gotowym wydaniem na GitHub Releases, a nie są wymagane do kompilacji. Program pobiera konfigurację i brakujące narzędzia w trakcie działania.
+
+Nie dodawaj do pull requestów własnych plików `Majher.ini`, modeli, pobranych narzędzi, archiwów, plików serwerowych ani gotowych EXE. Aktualne wydania i sumy kontrolne znajdują się w [Releases](https://github.com/proszczok2002/majher/releases).
+
+Na razie repozytorium nie ma osobnej licencji na ponowne użycie kodu. Fork i pull request na GitHubie są możliwe; zakres innych zastosowań ustalimy po wyborze licencji.

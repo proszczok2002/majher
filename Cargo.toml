@@ -1,0 +1,11 @@
+[package]
+name = "majher_bby_proszczok"
+version = "1.9.0"
+edition = "2021"
+
+[dependencies]
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
