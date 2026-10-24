@@ -2,6 +2,8 @@
 name = "majher_bby_proszczok"
 version = "1.9.0"
 edition = "2021"
+license = "MIT"
+repository = "https://github.com/proszczok2002/majher"
 
 [dependencies]
 

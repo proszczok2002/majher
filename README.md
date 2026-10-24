@@ -63,4 +63,4 @@ Gotowy plik pojawi się jako `target\release\majher_bby_proszczok.exe`. Można g
 
 Nie dodawaj do pull requestów własnych plików `Majher.ini`, modeli, pobranych narzędzi, archiwów, plików serwerowych ani gotowych EXE. Aktualne wydania i sumy kontrolne znajdują się w [Releases](https://github.com/proszczok2002/majher/releases).
 
-Na razie repozytorium nie ma osobnej licencji na ponowne użycie kodu. Fork i pull request na GitHubie są możliwe; zakres innych zastosowań ustalimy po wyborze licencji.
+Kod źródłowy Majhera jest udostępniany na licencji [MIT](LICENSE). Możesz go używać, modyfikować i rozpowszechniać, także we własnym forku, zachowując informację o prawach autorskich i tekst licencji. Pull requesty są mile widziane i podlegają przeglądowi przed połączeniem z `main`. Licencja Majhera nie zmienia licencji narzędzi zewnętrznych, które program może pobrać osobno (FFmpeg i whisper.cpp).
